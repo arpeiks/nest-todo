@@ -1,4 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class Todo {
@@ -8,9 +14,15 @@ export class Todo {
   @Column()
   task: string;
 
-  @Column({ default: false })
-  completed: string;
-
   @Column()
   due: Date;
+
+  @Column({ default: false })
+  completed: boolean;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 }
