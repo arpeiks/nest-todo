@@ -24,7 +24,8 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Simple todo api built with [Nest](https://github.com/nestjs/nest) framework.
+Using mysql and typeorm
 
 ## Installation
 
@@ -45,17 +46,30 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## API
 
 ```bash
-# unit tests
-$ npm run test
+# create new todo
+# @Body { task: string, due: Date }
+$ POST /todo
 
-# e2e tests
-$ npm run test:e2e
+# find todo
+# @Param { id: string }
+$ GET /todo/:id
 
-# test coverage
-$ npm run test:cov
+# fetch all todos
+$ GET /todo
+
+# update todo
+# @Param { id: string }
+# &Body { due?: string, task?: string, completed?: boolean }
+$ PUT /todo/:id
+
+# delete todo
+# @Param { id: string }
+$ DELETE /todo/:id
+
+
 ```
 
 ## Support
